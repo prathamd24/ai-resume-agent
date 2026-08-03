@@ -19,9 +19,6 @@ services:
     publishPath: dist
     plan: free
     envVars:
-      # This tells the frontend to connect to the backend we just built above!
+      # Render will ask you to provide the backend's public URL in the dashboard
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: career-copilot-backend
-          envVarKey: RENDER_EXTERNAL_URL
+        sync: false
