@@ -1,24 +1,12 @@
 services:
-  # 1. Deploy the FastAPI Backend using Docker
+  # 1. Deploy the FastAPI Backend (Native Python)
   - type: web
     name: career-copilot-backend
-    env: docker
+    env: python
     rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     plan: free
     envVars:
-      # Render will ask you to type in your API key securely on the dashboard
       - key: GEMINI_API_KEY
-        sync: false 
-
-  # 2. Deploy the React/Vite Frontend as a Static Site
-  - type: web
-    name: career-copilot-frontend
-    env: static
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    publishPath: dist
-    plan: free
-    envVars:
-      # Render will ask you to provide the backend's public URL in the dashboard
-      - key: VITE_API_BASE_URL
         sync: false
