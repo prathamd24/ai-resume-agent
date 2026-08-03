@@ -1,0 +1,27 @@
+services:
+  # 1. Deploy the FastAPI Backend using Docker
+  - type: web
+    name: career-copilot-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    envVars:
+      # Render will ask you to type in your API key securely on the dashboard
+      - key: GEMINI_API_KEY
+        sync: false 
+
+  # 2. Deploy the React/Vite Frontend as a Static Site
+  - type: web
+    name: career-copilot-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    plan: free
+    envVars:
+      # This tells the frontend to connect to the backend we just built above!
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: career-copilot-backend
+          envVarKey: RENDER_EXTERNAL_URL
