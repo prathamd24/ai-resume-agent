@@ -2,6 +2,8 @@
   <h1>🚀 CareerCopilot</h1>
   <p><b>An ultra-fast, stateless AI agent that analyzes and rewrites resumes to beat Applicant Tracking Systems (ATS).</b></p>
   
+  <h3>🟢 <a href="https://ai-resume-agent-60e17.web.app/">Live Demo</a></h3>
+  
   [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
   [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
   [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
